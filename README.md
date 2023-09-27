@@ -1,6 +1,6 @@
 # terraform.io
 This module uses service app.terraform.io to store terraform.tfstate. It's might free for your requirements.
-![Hetzner cloud](documents/hetzner_cloud.drawio.png)
+![Hetzner cloud](https://raw.githubusercontent.com/rmalenko/terraform-hz-hetzner-lb-firewall-cert-servers/main/documents/hetzner_cloud.drawio.png)
 
 You must have an account and prepare the environment running the command `terraform login`. This will create a file in your home directory `~/.terraform.d/credentials.tfrc.json`
 
@@ -25,13 +25,13 @@ Put the token into `terraform.tfvars`
 
 Also, additional keys will be created and stored in folder `./keys` and added to the Hetzner project created before.
 
-![Hetzner API key](documents/API_tokens_Hetzner_Cloud.png)
+![Hetzner API key](https://raw.githubusercontent.com/rmalenko/terraform-hz-hetzner-lb-firewall-cert-servers/main/documents/API_tokens_Hetzner_Cloud.png)
 
 ## DNS
 
 If you are going to use Hetzner DNS service, which allows you to use Letsencrypt with automatic renewal by Hetzner, then you need to create a DNS API key and put it to `terraform.tfvars`
 
-![Hetzner DNS](documents/API_tokens_Hetzner_DNS.png)
+![Hetzner DNS](https://raw.githubusercontent.com/rmalenko/terraform-hz-hetzner-lb-firewall-cert-servers/main/documents/API_tokens_Hetzner_DNS.png)
 
 ## `terraform.tfvars`
 ```hcl

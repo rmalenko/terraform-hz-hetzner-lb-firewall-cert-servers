@@ -1,0 +1,62 @@
+#cloud-config
+${yamlencode(
+  {
+    "write_files" = [
+      {
+        "content" = "Acquire::ForceIPv4 \"true\";\n",
+        "path" = "/etc/apt/apt.conf.d/99force-ipv4",
+        "owner" = "root:root",
+        "permissions" = "0644"
+      }
+    ],
+    "hostname": hostname
+    "fqdn": fqdn
+    "prefer_fqdn_over_hostname": prefer_fqdn_over_hostname
+    "package_update" = package_update,
+    "package_upgrade" = package_upgrade,
+    "timezone" = timezone,
+    "packages" = [
+      "fail2ban",
+      "tzdata",
+      "rsync",
+      "less",
+      "iotop",
+      "iftop",
+      "htop",
+      "mc",
+      "tcpdump",
+      "wget",
+      "iptraf",
+      "logtail",
+      "screen",
+      "netcat",
+      "sshfs",
+      "pigz",
+      "ncdu",
+      "net-tools",
+      "zip",
+      "unzip",
+      "sysfsutils"
+    ],
+    "runcmd" = [
+      "ufw disable"
+    ],
+    "groups" = [
+      "docker"
+    ],
+    "users" = [
+      "default",
+      {
+        "name" = ssh_user_name_gitact,
+        "gecos" = "Github action user",
+        "groups" = "docker",
+        "shell" = "/bin/bash",
+        "lock_passwd" = true,
+        "ssh_pwauth" = false,
+        "ssh-authorized-keys" = [
+          public_key_ecdsa_git
+        ]
+      }
+    ]
+  }
+)}
